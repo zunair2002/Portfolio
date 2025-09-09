@@ -1,38 +1,289 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+  margin: 0;
+  background:linear-gradient(45deg, #f48fb1, #b388ff, #90caf9, #a5d6a7, #fff176);
+  color: #333;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
-.App-logo {
-  height: 40vmin;
+
+.animated-background {
+  background: linear-gradient(45deg, #f48fb1, #b388ff, #90caf9, #a5d6a7, #fff176);
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.content-container {
+  position: relative;
+  z-index: 1;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.fancy-title {
+  font-family: "Italianno", cursive;
+  font-weight: 400;
+  font-size: 4rem;
+  color: #333;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.lead {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+.main-pic {
+  width: clamp(100px, 20vw, 150px);
+  height: clamp(100px, 20vw, 150px);
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.search-container {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.search-input {
+  width: 100%;
+  height: 55px;
+  padding: 10px 50px 10px 25px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #333;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.search-input::placeholder {
+  color: #333;
+}
+
+.search-input:focus {
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 0 4px rgba(176, 176, 176, 0.2);
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  color: #333;
+  font-size: 1.2rem;
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.about-me-content {
+  margin-top: 2.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  padding-top: 2.5rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.profile-container {
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: 'Inter', sans-serif;
+}
+
+.profile-bio {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.profile-name {
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #000000;
+    margin-bottom: 8px;
+}
+
+.profile-details {
+    font-size: 1rem;
+    color: #6c757d;
+    margin-bottom: 24px;
+}
+.skill-card {
+  background: rgba(255, 255, 255, 0.301);
+  backdrop-filter: blur(20px);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.skill-card h4 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  color: #333;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.skill-card .bi {
+  color: #2b2b2b;
+  font-size: 1.5rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.skill-tag {
+  background-color: #ffffff7a;
+  color: #333;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: default;
+  transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+  background-color: #414243;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.skill-card .table {
+  background-color: transparent;
+  color: #333;
+}
+
+.skill-card .table th,
+.skill-card .table td {
+  background-color: transparent !important;
+  text-decoration: none;
+  color: #333;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  vertical-align: middle;
+}
+
+.skill-card .table-hover tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.311) !important;
+  color: #000;
+}
+
+.certificate {
+  width: 120px;
+  height: auto;
+  border-radius: 8px;
+}
+.linkk{
+  text-decoration: none;
+  color: #0f7acd;
+}
+@media (max-width: 768px) {
+  .skill-card .table thead {
+    font-size: 0.9rem; 
   }
-  to {
-    transform: rotate(360deg);
+  .skill-card .table tbody td,
+  .skill-card .table tbody th {
+    font-size: 0.8rem; 
+    padding: 0.6rem 0.4rem;
+  }
+  .certificate {
+    width: 90px;
   }
 }
+.tag{
+  background-color: #ffffff7a;
+  color: #333;
+  padding: 8px 16px !important;
+  border-radius: 50px; 
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: default;
+  transition: all 0.3s ease;
+}
+.tag:hover {
+  background-color: #414243;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+.main-picc{
+  margin-top: 11%;
+  width: 490px;
+  height: 410px;
+  border-radius: 15px;
+  object-fit: cover;
+}
+.certificate{
+  width: 50px;
+  height: 50px;
+}
+
+.glass-box {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 200;
+  background: rgba(255, 255, 255, 0.301);
+  backdrop-filter: blur(20px);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.glass-box:hover {
+  transform: translateY(-10px);
+}
+
+.card-css {
+  background: rgba(255, 255, 255, 0.301) !important;
+  backdrop-filter: blur(20px);
+  color: #333 !important;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.card-css:hover {
+  transform: translateY(-10px);
+}
+
+@media (max-width: 768px) {
+  .fancy-title {
+    font-size: clamp(2rem, 12vw, 3rem);
+  }
+  .lead {
+    font-size: 1.1rem;
+  }
+  .content-container {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .search-input {
+    height: 50px;
+    padding: 10px 45px 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+  
