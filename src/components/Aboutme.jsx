@@ -14,14 +14,6 @@ const Aboutme = () => {
           />
           <p className="lead text-muted mb-4">Zunair Shahid</p>
           <div className="col-12 col-md-8 col-lg-6 mx-auto mb-5">
-            <div className="search-container">
-              <input
-                type="text"
-                className="search-input"
-                placeholder="Ask anything...."
-              />
-              <i className="bi bi-search search-icon"></i>
-            </div>
           </div>
 
           <div className="container about-me-content">
