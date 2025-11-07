@@ -11,7 +11,7 @@ const Contact = () => {
           <div class="card-body">
             
             <div class="info-header d-flex justify-content-between align-items-center mb-2">
-              <a class="email">zunairshahid@gmail.com<i class="fas fa-chevron-right ms-1 icon"></i></a>
+              <div class="email">zunairshahid@gmail.com<i class="fas fa-chevron-right ms-1 icon"></i></div>
               <span class="name">Zunair Shahid</span>
             </div>
 
@@ -26,17 +26,17 @@ const Contact = () => {
             <div class="social-grid mt-4">
               <div class="social-item">
                 <div class="icon"><i class="fab fa-linkedin linkedin-icon"></i></div>
-                <a href="https://www.linkedin.com/in/zunair-shahid-1ab94327a/" target="_blank">LinkedIn</a>
+                <a href="https://www.linkedin.com/in/zunair-shahid-1ab94327a/" target="_blank" rel="noreferrer">LinkedIn</a>
               </div>
               
               <div class="social-item">
                 <div class="icon"><i class="fab fa-instagram instagram-icon"></i></div>
-                <a href="https://www.instagram.com/zunair2003/" target="_blank">Instagram</a>
+                <a href="https://www.instagram.com/zunair2003/" target="_blank" rel="noreferrer">Instagram</a>
               </div>
               
               <div class="social-item">
                 <div class="icon"><i class="fab fa-github github-icon"></i></div>
-                <a href="https://github.com/zunair2002/" target="_blank">GitHub</a>
+                <a href="https://github.com/zunair2002/" target="_blank" rel="noreferrer">GitHub</a>
               </div>
 
             </div>
