@@ -33,16 +33,16 @@ const Skills = () => {
                     <th scope="row">
                       <img className="certificate" src='devops certificate.jpg' alt="DevOps Certificate" />
                     </th>
-                    <td>12-04-2023</td>
-                    <td>15-05-2023</td>
+                    <td>03-09-2024</td>
+                    <td>15-10-2024</td>
                     <td><a href="https://www.linkedin.com/in/zunair-shahid-1ab94327a/" className="linkk" target="_blank" rel="noopener noreferrer">(DEVOPS)</a></td>
                   </tr>
                   <tr>
                     <th scope="row">
                       <img className="certificate" src='FS certificate.png' alt="Certificate" />
                     </th>
-                    <td>12-04-2023</td>
-                    <td>15-05-2023</td>
+                    <td>16-04-2022</td>
+                    <td>07-07-2022</td>
                     <td><a href="https://www.linkedin.com/in/zunair-shahid-1ab94327a/" className="linkk" target="_blank" rel="noopener noreferrer">(MERN)</a></td>
                   </tr>
                   <tr>
@@ -74,6 +74,7 @@ const Skills = () => {
                   <span className="skill-tag">Bootstrap</span>
                   <span className="skill-tag">Tailwind CSS</span>
                   <span className="skill-tag">React</span>
+                  <span className="skill-tag">DaisyUI</span>
                 </div>
               </div>
             </div>
@@ -91,6 +92,7 @@ const Skills = () => {
                   <span className="skill-tag">PHP</span>
                   <span className="skill-tag">Laravel</span>
                   <span className="skill-tag">Git</span>
+                  <span className="skill-tag">Git Lab</span>
                   <span className="skill-tag">GitHub</span>
                   <span className="skill-tag">Docker</span>
                 </div>

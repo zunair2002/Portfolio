@@ -16,7 +16,7 @@ const Contact = () => {
             </div>
 
             <div class="extra-details">
-                <p><i class="fas fa-briefcase mb-1"></i> Full-Stack (MERN) Developer | Web Designer (UI-UX)</p>
+                <p><i class="fas fa-briefcase mb-1"></i> Full-Stack (MERN) Developer | AI Developer (Python) | Web Designer (UI-UX)</p>
                 <p><i class="bi bi-telephone-fill mb-1"></i> +92 3314774138</p>
                 <p><i class="fas fa-map-marker-alt mb-1"></i> Lahore, Pakistan</p>
             </div>

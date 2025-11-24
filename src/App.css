@@ -265,6 +265,51 @@ body {
 .card-css:hover {
   transform: translateY(-10px);
 }
+.imgs {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.responsive-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+}
+.card-css.imgs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 10px;
+}
+
+.card-css.imgs img {
+  width: 100%;
+  height: auto;     
+  object-fit: cover;   
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .card-css.imgs {
+    grid-template-columns: repeat(1, 1fr); 
+  }
+}
+
+
+@media (min-width: 992px) {
+  .responsive-img {
+    max-height: 500px;
+  }
+}
+
+@media (max-width: 600px) {
+  .responsive-img {
+    max-height: 300px;
+    object-fit: contain;
+  }
+}
+
 
 @media (max-width: 768px) {
   .fancy-title {

@@ -5,6 +5,7 @@ import Aboutme from './components/Aboutme';
 import Skills from './components/Skills';
 import Project from './components/Project';
 import Contact from './components/Contact';
+import ProjectDetails from './components/Projects/ProjectsDetails.jsx';
 function App() {
   return (
     <>
@@ -13,6 +14,7 @@ function App() {
       <Route path='/aboutme' element={<Aboutme />}></Route>
       <Route path='/skills' element={<Skills />}></Route>
       <Route path='/project' element={<Project />}></Route>
+      <Route path="/project/:id" element={<ProjectDetails />} />
       <Route path='/contactme' element={<Contact />}></Route>
     </Routes>
     </>

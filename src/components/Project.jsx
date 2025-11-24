@@ -1,90 +1,63 @@
-import React from 'react';
-import '../App.css';
-const Project = () => {
+import React from "react";
+import "../App.css";
+import { Link } from "react-router-dom";
+
+function Project() {
+  const cardProjects = [
+    {
+      id: 1,
+      type: "Project",
+      name: "ChatGO",
+      description:
+        "A real-time chat application with Socket.io messaging and secure authentication, featuring a responsive interface and a scalable backend for smooth, reliable communication.",
+    },
+    {
+      id: 2,
+      type: "Project",
+      name: "WalletWave",
+      description:
+      "A modern crypto-wallet interface that shows live cryptocurrency data and key info for popular coins. It also features an interactive Bitcoin chart to track market trends in real time."
+    },
+    {
+      id: 3,
+      type: "Project",
+      name: "Expense Tracker",
+      description:
+"An expense tracker logs all your income and spending using simple charts to show exactly where your money goes. This helps you easily understand your financial habits and make smarter plans for your budget."
+    },
+    // {
+    //   id: 4,
+    //   type: "Final Year Project",
+    //   name: "Study Bhai",
+    //   description:
+    //     "An educational platform for students providing personalized experiences, interactive lessons, and instant doubt clearing through an AI chatbot.",
+    // },
+  ];
+
   return (
     <>
-     
-        <div className="container py-5">
+    <h1 className="fancy-title text-center mt-5">Project Details</h1>
+      <div className="container py-5">
         <div className="row justify-content-center g-4">
+          {cardProjects.map((project) => (
+            <div className="col-lg-5 col-md-6" key={project.id}>
+              <Link to={`/project/${project.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                <div className="card h-100 border-0 rounded-4 p-4 card-css">
+                  <div className="card-body">
+                    <p className="mb-1">{project.type}</p>
+                    <h2 className="card-title mb-3">{project.name}</h2>
+                    <p className="card-text">{project.description}</p>
+                  </div>
+                  <hr></hr>
+                </div>
+              </Link>
+            </div>
+          ))}
           
-          <div className="col-lg-5 col-md-6">
-            <div className="card h-100 border-0 rounded-4 p-4 card-css">
-              <div className="card-body">
-                <p className="mb-1">Final Year Project</p>
-                <h2 className="card-title mb-3">Study Bhai</h2>
-                <p className="card-text">
-                  An educational platform for students providing personalized experiences, interactive lessons, and instant doubt clearing through an AI chatbot.
-                </p>
-              </div>
-              <hr></hr>
-            </div>
-          </div>
-            <div className="col-lg-5 col-md-6">
-            <div className="card h-100 border-0 rounded-4 p-4 card-css">
-              <div className="card-body">
-                <p className="mb-1">Final Year Project</p>
-                <h2 className="card-title mb-3">Study Bhai</h2>
-                <p className="card-text">
-                  An educational platform for students providing personalized experiences, interactive lessons, and instant doubt clearing through an AI chatbot.
-                </p>
-              </div>
-              <hr></hr>
-            </div>
-          </div>
-            <div className="col-lg-5 col-md-6">
-            <div className="card h-100 border-0 rounded-4 p-4 card-css">
-              <div className="card-body">
-                <p className="mb-1">Final Year Project</p>
-                <h2 className="card-title mb-3">Study Bhai</h2>
-                <p className="card-text">
-                  An educational platform for students providing personalized experiences, interactive lessons, and instant doubt clearing through an AI chatbot.
-                </p>
-              </div>
-              <hr></hr>
-            </div>
-          </div>
-            <div className="col-lg-5 col-md-6">
-            <div className="card h-100 border-0 rounded-4 p-4 card-css">
-              <div className="card-body">
-                <p className="mb-1">Final Year Project</p>
-                <h2 className="card-title mb-3">Study Bhai</h2>
-                <p className="card-text">
-                  An educational platform for students providing personalized experiences, interactive lessons, and instant doubt clearing through an AI chatbot.
-                </p>
-              </div>
-              <hr></hr>
-            </div>
-          </div>
-            <div className="col-lg-10 col-md-12 mt-5">
-            
-            <h3>AI Chatbot Project</h3>
-            <p>
-              A smart, interactive chatbot designed to provide instant, 24/7 user support and answer queries efficiently. This project uses natural language processing to understand and respond to user needs in real-time.
-            </p>
-            <hr></hr>
-
-            <h3>Expense App</h3>
-            <p>
-              A user-friendly expense tracking application that helps you monitor your spending, categorize expenses, and manage your budget effectively. Take control of your finances with insightful charts and simple data entry.
-            </p>
-            <hr></hr>
-
-            <h3>Chat App</h3>
-            <p>
-              A real-time messaging application built for seamless and instant communication. Connect with friends or colleagues through a clean interface that supports text messaging and user status updates.
-            </p>
-            <hr></hr>
-
-            <h3>CPU Processing Calculator</h3>
-            <p>
-              A simulation tool that calculates and visualizes various CPU scheduling algorithms like FCFS, SJF, and Round Robin. It helps in understanding and comparing the performance and efficiency of different processing methods.
-            </p>
-            <hr></hr>
-          </div>
         </div>
       </div>
     </>
-  )
+  );
 }
 
 export default Project;

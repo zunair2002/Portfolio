@@ -6,7 +6,7 @@ const Aboutme = () => {
       <div className="animated-background"></div>
       <div className="container-fluid min-vh-100 d-flex flex-column justify-content-center align-items-center text-center content-container">
         <div className="w-100" style={{ maxWidth: '1200px', padding: '0 15px' }}>
-                    <h1 className="fancy-title">Portfolio</h1>
+          <h1 className="fancy-title">Portfolio</h1>
           <img
             className="main-pic" 
             src="imgg.jpeg"
@@ -22,14 +22,14 @@ const Aboutme = () => {
                 <div class="card-body">
               <p className="profile-bio">
                 Hey,<br />
-                I'm Zunair Shahid. As a MERN Stack Developer, I specialize in building complete, end-to-end web applications using JavaScript. My expertise lies in crafting dynamic and responsive user interfaces with React on the front-end, while on the back-end, I leverage Node.js and Express.js to create robust, scalable server-side logic and APIs. I manage and structure data efficiently using MongoDB, ensuring a seamless connection between the user and the server.
+I am a MERN stack developer with experience in creating complete end-to-end web applications using React, Node.js, Express.js, and MongoDB. I design clean, responsive user interfaces, develop reliable and scalable back-end APIs, and organize data efficiently to ensure seamless communication between users and the server. In addition to my full-stack skills, I work with modern AI technologies such as RAG, LangChain, LangGraph, NumPy, and OpenCV, enabling me to build smarter, faster, and more intelligent applications that integrate robust web development with advanced AI capabilities.
               </p>
               <hr/>
               <div className="d-flex flex-wrap justify-content-center align-items-center gap-2 p-2">
-                <span className="skill-tag">Video-editing</span>
-                <span className="skill-tag">UI-UX</span>
-                <span className="skill-tag">Web Developer</span>
-                <span className="skill-tag">Full-stack</span>
+                <span className="skill-tag">MERN-stack</span>
+                <span className="skill-tag">UI-UX Design</span>
+                <span className="skill-tag">AI Devloper</span>
+                <span className="skill-tag">Vedio-Editing</span>
               </div>
               </div>
               </div>
