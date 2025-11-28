@@ -1,9 +1,23 @@
 import React from 'react';
 import '../App.css';
+import ParticlesBackground from '@/components/lightswind/particles-background';
+
 
 const Skills = () => {
   return (
     <>
+    <div style={{ position: "relative", minHeight: "100vh" }}>
+          <div style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "100%", zIndex: -1 }}>
+            <ParticlesBackground
+              colors={['#00ffff', '#ff00ff', '#ffaa00']}
+              size={3}
+              countDesktop={300}
+              countTablet={350}
+              countMobile={500}
+              zIndex={-1}
+              height="100%"
+            />
+          </div>
       <div id="skills" className="container-fluid py-5">
         <div className="container">
           <div className="text-center mb-5">
@@ -29,14 +43,6 @@ const Skills = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">
-                      <img className="certificate" src='devops certificate.jpg' alt="DevOps Certificate" />
-                    </th>
-                    <td>03-09-2024</td>
-                    <td>15-10-2024</td>
-                    <td><a href="https://www.linkedin.com/in/zunair-shahid-1ab94327a/" className="linkk" target="_blank" rel="noopener noreferrer">(DEVOPS)</a></td>
-                  </tr>
                   <tr>
                     <th scope="row">
                       <img className="certificate" src='FS certificate.png' alt="Certificate" />
@@ -75,6 +81,7 @@ const Skills = () => {
                   <span className="skill-tag">Tailwind CSS</span>
                   <span className="skill-tag">React</span>
                   <span className="skill-tag">DaisyUI</span>
+                  <span className="skill-tag">Lightswind CSS</span>
                 </div>
               </div>
             </div>
@@ -95,6 +102,8 @@ const Skills = () => {
                   <span className="skill-tag">Git Lab</span>
                   <span className="skill-tag">GitHub</span>
                   <span className="skill-tag">Docker</span>
+                  <span className="skill-tag">LangChain</span>
+                  <span className="skill-tag">LangGraph</span>
                 </div>
               </div>
             </div>
@@ -136,6 +145,7 @@ const Skills = () => {
 
           </div>
         </div>
+      </div>
       </div>
     </>
   )

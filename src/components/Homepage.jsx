@@ -1,13 +1,28 @@
 import React from "react";
 import '../App.css';
 import { Link } from 'react-router-dom';
+import ParticlesBackground from '@/components/lightswind/particles-background';
+// import GlowingCards from "@/components/lightswind";
 
 const Homepage = () => {
-  
   return (
-    <>
-      <div className="animated-background"></div>
-      <div className="container-fluid min-vh-100 d-flex flex-column justify-content-center align-items-center text-center content-container">
+  <div style={{ position: "relative", minHeight: "100vh" }}>
+      <div style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "100%", zIndex: -1 }}>
+        <ParticlesBackground
+          colors={['#00ffff', '#ff00ff', '#ffaa00']}
+          size={3}
+          countDesktop={300}
+          countTablet={350}
+          countMobile={500}
+          zIndex={-1}
+          height="100%"
+        />
+      </div>
+
+      <div
+        className="container-fluid min-vh-100 d-flex flex-column justify-content-center align-items-center text-center content-container"
+        style={{ position: "relative", zIndex: 1 }}
+      >
         <div className="w-100" style={{ maxWidth: '1200px', padding: '0 15px' }}>
           <h1 className="fancy-title">My Portfolio</h1>
           <img
@@ -60,7 +75,7 @@ const Homepage = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

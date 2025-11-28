@@ -1,6 +1,8 @@
 import React from "react";
 import "../App.css";
 import { Link } from "react-router-dom";
+import ParticlesBackground from '@/components/lightswind/particles-background';
+
 
 function Project() {
   const cardProjects = [
@@ -36,6 +38,18 @@ function Project() {
 
   return (
     <>
+     <div style={{ position: "relative", minHeight: "100vh" }}>
+          <div style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "100%", zIndex: -1 }}>
+            <ParticlesBackground
+              colors={['#00ffff', '#ff00ff', '#ffaa00']}
+              size={3}
+              countDesktop={300}
+              countTablet={350}
+              countMobile={500}
+              zIndex={-1}
+              height="100%"
+            />
+          </div>
     <h1 className="fancy-title text-center mt-5">Project Details</h1>
       <div className="container py-5">
         <div className="row justify-content-center g-4">
@@ -55,6 +69,7 @@ function Project() {
           ))}
           
         </div>
+      </div>
       </div>
     </>
   );

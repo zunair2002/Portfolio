@@ -1,10 +1,24 @@
 import React from 'react';
 import './Contact.css';
+import ParticlesBackground from '@/components/lightswind/particles-background';
+
 
 
 const Contact = () => {
   return (
     <>
+     <div style={{ position: "relative", minHeight: "100vh" }}>
+          <div style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "100%", zIndex: -1 }}>
+            <ParticlesBackground
+              colors={['#00ffff', '#ff00ff', '#ffaa00']}
+              size={3}
+              countDesktop={300}
+              countTablet={350}
+              countMobile={500}
+              zIndex={-1}
+              height="100%"
+            />
+          </div>
    <div class="card-container">
 
         <div class="card glass-card">
@@ -44,6 +58,7 @@ const Contact = () => {
           </div>
         </div>
 
+    </div>
     </div>
     
     </>

@@ -1,5 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import ParticlesBackground from '@/components/lightswind/particles-background';
+
 
 function ProjectDetails() {
   const { id } = useParams(); 
@@ -8,7 +10,18 @@ function ProjectDetails() {
 
   if (id === "1") {
     content = (
-      
+      <div style={{ position: "relative", minHeight: "100vh" }}>
+                <div style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "100%", zIndex: -1 }}>
+                  <ParticlesBackground
+                    colors={['#00ffff', '#ff00ff', '#ffaa00']}
+                    size={3}
+                    countDesktop={300}
+                    countTablet={350}
+                    countMobile={500}
+                    zIndex={-1}
+                    height="100%"
+                  />
+                </div>
       <div className="container mt-5">
         <div className="px-4 card-css mb-4 py-3">
         <h1 className="fancy-title mt-5 text-center">Project 1</h1>
@@ -56,9 +69,22 @@ Once logged in, the client connects to the server through Socket.IO, creating a 
         />
         </div>
       </div>
+      </div>
     );
   } else if (id === "2") {
     content = (
+      <div style={{ position: "relative", minHeight: "100vh" }}>
+                <div style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "100%", zIndex: -1 }}>
+                  <ParticlesBackground
+                    colors={['#00ffff', '#ff00ff', '#ffaa00']}
+                    size={3}
+                    countDesktop={300}
+                    countTablet={350}
+                    countMobile={500}
+                    zIndex={-1}
+                    height="100%"
+                  />
+                </div>
         <div className="container mt-5">
         <div className="px-4 card-css mb-4 py-3">
         <h1 className="fancy-title mt-5 text-center">Project 2</h1>
@@ -105,9 +131,22 @@ The dashboard also includes sections like a blog preview and an informational ar
         />
         </div>
       </div>
+      </div>
     );
   } else if (id === "3") {
     content = (
+      <div style={{ position: "relative", minHeight: "100vh" }}>
+              <div style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "100%", zIndex: -1 }}>
+                <ParticlesBackground
+                  colors={['#00ffff', '#ff00ff', '#ffaa00']}
+                  size={3}
+                  countDesktop={300}
+                  countTablet={350}
+                  countMobile={500}
+                  zIndex={-1}
+                  height="100%"
+                />
+              </div>
     <div className="container mt-5">
         <div className="px-4 card-css mb-4 py-3">
         <h1 className="fancy-title mt-5 text-center">Project 3</h1>
@@ -152,6 +191,7 @@ Beyond simply recording data, this application offers analytical features to gui
           className="img-fluid rounded mb-3"
         />
         </div>
+      </div>
       </div>
     );
   } else if (id === "4") {
