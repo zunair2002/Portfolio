@@ -15,9 +15,9 @@ function ProjectDetails() {
                   <ParticlesBackground
                     colors={['#00ffff', '#ff00ff', '#ffaa00']}
                     size={3}
-                    countDesktop={300}
-                    countTablet={350}
-                    countMobile={500}
+                    countDesktop={200}
+                    countTablet={250}
+                    countMobile={300}
                     zIndex={-1}
                     height="100%"
                   />
@@ -78,9 +78,9 @@ Once logged in, the client connects to the server through Socket.IO, creating a 
                   <ParticlesBackground
                     colors={['#00ffff', '#ff00ff', '#ffaa00']}
                     size={3}
-                    countDesktop={300}
-                    countTablet={350}
-                    countMobile={500}
+                    countDesktop={200}
+                    countTablet={250}
+                    countMobile={300}
                     zIndex={-1}
                     height="100%"
                   />
@@ -140,9 +140,9 @@ The dashboard also includes sections like a blog preview and an informational ar
                 <ParticlesBackground
                   colors={['#00ffff', '#ff00ff', '#ffaa00']}
                   size={3}
-                  countDesktop={300}
-                  countTablet={350}
-                  countMobile={500}
+                  countDesktop={200}
+                    countTablet={250}
+                    countMobile={300}
                   zIndex={-1}
                   height="100%"
                 />

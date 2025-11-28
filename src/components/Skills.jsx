@@ -11,9 +11,9 @@ const Skills = () => {
             <ParticlesBackground
               colors={['#00ffff', '#ff00ff', '#ffaa00']}
               size={3}
-              countDesktop={300}
-              countTablet={350}
-              countMobile={500}
+              countDesktop={200}
+                    countTablet={250}
+                    countMobile={300}
               zIndex={-1}
               height="100%"
             />
