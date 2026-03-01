@@ -1,66 +1,111 @@
 import React from 'react';
 import './Contact.css';
+import '../App.css';
 import ParticlesBackground from '@/components/lightswind/particles-background';
-
-
+import { Mail, Phone, MapPin, Briefcase, Linkedin, Instagram, Github } from "lucide-react";
 
 const Contact = () => {
   return (
     <>
-     <div style={{ position: "relative", minHeight: "100vh" }}>
-          <div style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "100%", zIndex: -1 }}>
-            <ParticlesBackground
-              colors={['#00ffff', '#ff00ff', '#ffaa00']}
-              size={3}
-              countDesktop={200}
-                    countTablet={250}
-                    countMobile={300}
-              zIndex={-1}
-              height="100%"
-            />
-          </div>
-   <div class="card-container">
-
-        <div class="card glass-card">
-          <div class="card-body">
-            
-            <div class="info-header d-flex justify-content-between align-items-center mb-2">
-              <div class="email">zunairshahid@gmail.com<i class="fas fa-chevron-right ms-1 icon"></i></div>
-              <span class="name">Zunair Shahid</span>
-            </div>
-
-            <div class="extra-details">
-                <p><i class="fas fa-briefcase mb-1"></i> Full-Stack (MERN) Developer | AI Developer (Python) | Web Designer (UI-UX)</p>
-                <p><i class="bi bi-telephone-fill mb-1"></i> +92 3314774138</p>
-                <p><i class="fas fa-map-marker-alt mb-1"></i> Lahore, Pakistan</p>
-            </div>
-
-            <hr/>
-
-            <div class="social-grid mt-4">
-              <div class="social-item">
-                <div class="icon"><i class="fab fa-linkedin linkedin-icon"></i></div>
-                <a href="https://www.linkedin.com/in/zunair-shahid-1ab94327a/" target="_blank" rel="noreferrer">LinkedIn</a>
-              </div>
-              
-              <div class="social-item">
-                <div class="icon"><i class="fab fa-instagram instagram-icon"></i></div>
-                <a href="https://www.instagram.com/zunair2003/" target="_blank" rel="noreferrer">Instagram</a>
-              </div>
-              
-              <div class="social-item">
-                <div class="icon"><i class="fab fa-github github-icon"></i></div>
-                <a href="https://github.com/zunair2002/" target="_blank" rel="noreferrer">GitHub</a>
-              </div>
-
-            </div>
-
-          </div>
+    <ParticlesBackground
+      colors={[ "#F28B82", 
+  "#FDD663", 
+  "#81C995", 
+  "#8AB4F8", 
+  "#C58AF9"
+      ]
+    }   
+      size={6}
+      countDesktop={80}
+      countTablet={60}
+      countMobile={40}
+      zIndex={-1}
+      height="100vh"
+    />
+    <div className="container-fluid min-vh-100 d-flex flex-column justify-content-center content-container">
+      <div className="w-100" style={{ maxWidth: '1200px', margin: '0 auto', padding: '2rem 1rem' }}>
+        <div className="text-center mb-5">
+          <h1 className="about-me-title" style={{ marginBottom: '1rem' }}>CONTACT ME</h1>
+          <p className="lead" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.3rem)', color: '#555' }}>Let's connect and build something amazing together.</p>
         </div>
 
+        <div className="row g-4 justify-content-center">
+          {/* Contact Info Card */}
+          <div className="col-lg-8">
+            <div className="contact-card h-100 p-5">
+              <div className="d-flex flex-column">
+                <div className="contact-header mb-4">
+                  <h2 className="contact-name">Zunair Shahid</h2>
+                  <a href="mailto:zunairshahid@gmail.com" className="contact-email">
+                    <Mail size={28} style={{ marginRight: '0.75rem' }} />
+                    zunairshahid@gmail.com
+                  </a>
+                </div>
+
+                <hr style={{ width: '100%', borderColor: 'rgba(255, 255, 255, 0.25)', margin: '2rem 0' }} />
+
+                <div className="contact-details">
+                  <div className="contact-detail-item">
+                    <Briefcase size={32} className="contact-icon" style={{ color: '#F28B82' }} />
+                    <p className="contact-detail-text">Full-Stack (MERN) Developer | AI Developer (Python) | Web Designer (UI-UX)</p>
+                  </div>
+                  
+                  <div className="contact-detail-item">
+                    <Phone size={32} className="contact-icon" style={{ color: '#81C995' }} />
+                    <p className="contact-detail-text">+92 3314774138</p>
+                  </div>
+                  
+                  <div className="contact-detail-item">
+                    <MapPin size={32} className="contact-icon" style={{ color: '#8AB4F8' }} />
+                    <p className="contact-detail-text">Lahore, Pakistan</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Social Links Card */}
+          <div className="col-lg-4">
+            <div className="contact-card h-100 p-5">
+              <div className="d-flex flex-column align-items-center text-center h-100 justify-content-center">
+                <h3 className="social-title mb-4">Connect With Me</h3>
+                <div className="social-links">
+                  <a 
+                    href="https://www.linkedin.com/in/zunair-shahid-1ab94327a/" 
+                    target="_blank" 
+                    rel="noreferrer"
+                    className="social-link-item"
+                  >
+                    <Linkedin size={48} style={{ color: '#0A66C2', marginBottom: '1rem' }} />
+                    <span className="social-link-text">LinkedIn</span>
+                  </a>
+                  
+                  <a 
+                    href="https://www.instagram.com/zunair2003/" 
+                    target="_blank" 
+                    rel="noreferrer"
+                    className="social-link-item"
+                  >
+                    <Instagram size={48} style={{ color: '#E4405F', marginBottom: '1rem' }} />
+                    <span className="social-link-text">Instagram</span>
+                  </a>
+                  
+                  <a 
+                    href="https://github.com/zunair2002/" 
+                    target="_blank" 
+                    rel="noreferrer"
+                    className="social-link-item"
+                  >
+                    <Github size={48} style={{ color: '#181717', marginBottom: '1rem' }} />
+                    <span className="social-link-text">GitHub</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    </div>
-    
     </>
   )
 }

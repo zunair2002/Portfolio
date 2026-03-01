@@ -1,14 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-body, html {
+body {
   margin: 0;
-  padding: 0;
+  /* background:linear-gradient(45deg, #f48fb1, #b388ff, #90caf9, #a5d6a7, #fff176); */
+  color: #333;
   width: 100%;
   height: 100%;
-  overflow-x: hidden;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
+
+.animated-background {
+  /* background: linear-gradient(45deg, #f48fb1, #b388ff, #90caf9, #a5d6a7, #fff176); */
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 
 .content-container {
   position: relative;
@@ -40,24 +51,218 @@ body, html {
   margin-bottom: 0.5rem;
 }
 
+.homepage-avatar {
+  width: clamp(200px, 25vw, 350px);
+  height: clamp(200px, 25vw, 350px);
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+  flex-shrink: 0;
+}
+
+.homepage-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.homepage-name {
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  color: #000000;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.homepage-description {
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(1rem, 1.5vw, 1.3rem);
+  font-weight: 400;
+  color: #555;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.homepage-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+}
+
+.homepage-buttons .glass-box {
+  width: 100%;
+  min-width: 280px;
+}
+
+.homepage-card {
+  padding: 2.5rem 2rem;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.homepage-card-icon {
+  font-size: 3.5rem;
+  color: #2b2b2b;
+  margin-bottom: 1rem;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.homepage-card-text {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 1.3rem;
+  margin: 0;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 992px) {
+  .homepage-avatar {
+    width: clamp(150px, 30vw, 250px);
+    height: clamp(150px, 30vw, 250px);
+  }
+  
+  .homepage-buttons {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    gap: 1rem;
+  }
+
+  .homepage-buttons .glass-box {
+    min-width: 200px;
+  }
+
+  .homepage-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .homepage-card-icon {
+    font-size: 3rem;
+  }
+
+  .homepage-card-text {
+    font-size: 1.2rem;
+  }
+  
+  .homepage-info {
+    text-align: left;
+  }
+}
+
+@media (max-width: 768px) {
+  .homepage-avatar {
+    width: clamp(120px, 35vw, 200px);
+    height: clamp(120px, 35vw, 200px);
+  }
+
+  .homepage-buttons {
+    max-width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .homepage-buttons .glass-box {
+    min-width: 140px;
+    flex: 1 1 auto;
+  }
+
+  .homepage-card {
+    padding: 1.75rem 1.5rem;
+  }
+
+  .homepage-card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .homepage-card-text {
+    font-size: 1.1rem;
+  }
+  
+  .homepage-info {
+    gap: 0.5rem;
+  }
+}
+
+.search-container {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.search-input {
+  width: 100%;
+  height: 55px;
+  padding: 10px 50px 10px 25px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #333;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.search-input::placeholder {
+  color: #333;
+}
+
+.search-input:focus {
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 0 4px rgba(176, 176, 176, 0.2);
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  color: #333;
+  font-size: 1.2rem;
+  pointer-events: none;
+}
+
 .about-me-content {
-  margin-top: 2.5rem;
   border-top: 1px solid rgba(255, 255, 255, 0.4);
   padding-top: 2.5rem;
 }
 
 .profile-container {
-  max-width: 800px;
+  max-width: 100%;
   margin: 0 auto;
   font-family: 'Inter', sans-serif;
 }
 
+.about-me-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  color: #000000;
+  text-align: center;
+  margin-bottom: 3rem;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
 .profile-bio {
-  font-size: 1rem;
-  line-height: 2;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  line-height: 1.8;
   color: #333;
   margin-bottom: 24px;
   text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
 }
 
 .profile-name {
@@ -74,16 +279,17 @@ body, html {
     margin-bottom: 24px;
 }
 .skill-card {
- background: transparent !important;
-  backdrop-filter: blur(3px);
-  color: #000000 !important;
+  background: rgba(255, 255, 255, 0.301);
+  backdrop-filter: blur(20px);
   border-radius: 15px;
-  box-shadow: 0 8px 32px 0 rgba(135, 135, 135, 0.742);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
   transition: transform 0.3s ease;
 }
 
 .skill-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
 .skill-card h4 {
@@ -100,18 +306,18 @@ body, html {
 }
 
 .skill-tag {
-  background-color: #242424e4;
-  color: #ffffff;
-  padding: 8px 16px;
+  background-color: #ffffff7a;
+  color: #333;
+  padding: clamp(10px, 1.2vw, 14px) clamp(18px, 2vw, 24px);
   border-radius: 50px;
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  font-weight: 600;
   cursor: default;
   transition: all 0.3s ease;
 }
 
 .skill-tag:hover {
-  background-color: #8a8a8a;
+  background-color: #414243;
   color: #ffffff;
   transform: translateY(-2px);
 }
@@ -125,8 +331,8 @@ body, html {
 .skill-card .table td {
   background-color: transparent !important;
   text-decoration: none;
-  color: #000000;
-  border-color: rgba(0, 0, 0, 0.30) !important;
+  color: #333;
+  border-color: rgba(255, 255, 255, 0.25) !important;
   vertical-align: middle;
 }
 
@@ -142,7 +348,7 @@ body, html {
 }
 .linkk{
   text-decoration: none;
-  color: #030b78;
+  color: #0f7acd;
 }
 @media (max-width: 768px) {
   .skill-card .table thead {
@@ -156,9 +362,6 @@ body, html {
   .certificate {
     width: 90px;
   }
-}
-.glass-card{
-  border: none;
 }
 .tag{
   background-color: #ffffff7a;
@@ -182,35 +385,216 @@ body, html {
   border-radius: 15px;
   object-fit: cover;
 }
-.certificate{
-  width: 50px;
-  height: 50px;
+.certificate {
+  width: clamp(80px, 10vw, 120px);
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
 }
+
+/* Polaroid Card Styles */
+.polaroid-card {
+  min-height: 500px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+.polaroid-image-container {
+  width: 100%;
+  height: 350px;
+  padding: 1.5rem;
+  padding-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.polaroid-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.polaroid-content {
+  padding: 1.5rem;
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-grow: 1;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.polaroid-link:hover {
+  color: #0a5d8f !important;
+  transform: translateY(-2px);
+  text-decoration: underline !important;
+}
+
+/* Ensure skill cards have consistent height */
+.skill-card.h-100 {
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.skill-card.h-100 > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .polaroid-card {
+    min-height: 450px;
+  }
+  
+  .polaroid-image-container {
+    height: 280px;
+    padding: 1rem;
+  }
+  
+  .polaroid-content {
+    padding: 1rem;
+  }
+  
+  .skill-card.h-100 {
+    min-height: 350px;
+  }
+}
+
+.multi-glow-card {
+  font-family: "Montserrat", sans-serif;
+  background: rgba(255, 255, 255, 0.301);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 
+    0 0 20px rgba(242, 139, 130, 0.3),
+    0 0 40px rgba(253, 214, 99, 0.2),
+    0 0 60px rgba(129, 201, 149, 0.2),
+    0 0 80px rgba(138, 180, 248, 0.15),
+    0 0 100px rgba(197, 138, 249, 0.1),
+    0 8px 32px 0 rgba(31, 38, 135, 0.1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.multi-glow-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg,
+    rgba(242, 139, 130, 0.1) 0deg,
+    rgba(253, 214, 99, 0.1) 72deg,
+    rgba(129, 201, 149, 0.1) 144deg,
+    rgba(138, 180, 248, 0.1) 216deg,
+    rgba(197, 138, 249, 0.1) 288deg,
+    rgba(242, 139, 130, 0.1) 360deg
+  );
+  animation: rotate 10s linear infinite;
+  z-index: -1;
+}
+
+.multi-glow-card::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background: rgba(255, 255, 255, 0.301);
+  backdrop-filter: blur(20px);
+  border-radius: 18px;
+  z-index: -1;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.multi-glow-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 0 30px rgba(242, 139, 130, 0.5),
+    0 0 50px rgba(253, 214, 99, 0.4),
+    0 0 70px rgba(129, 201, 149, 0.3),
+    0 0 90px rgba(138, 180, 248, 0.25),
+    0 0 110px rgba(197, 138, 249, 0.2),
+    0 16px 48px 0 rgba(31, 38, 135, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.multi-glow-card .table {
+  background-color: transparent;
+  color: #333;
+}
+
+.multi-glow-card .table th,
+.multi-glow-card .table td {
+  background-color: transparent !important;
+  text-decoration: none;
+  color: #333;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  vertical-align: middle;
+}
+
+.multi-glow-card .table-hover tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.311) !important;
+  color: #000;
+}
+
 .glass-box {
   font-family: "Montserrat", sans-serif;
   font-weight: 200;
-  position: relative;
-  border-radius: 15px;
-  background: transparent !important;
-  backdrop-filter: blur(3px);
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  z-index: 1;
+  background: rgba(255, 255, 255, 0.301);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .glass-box:hover {
-  transform: translateY(-10px);
-  background: transparent !important;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 16px 48px 0 rgba(31, 38, 135, 0.2);
+  background: rgba(255, 255, 255, 0.35);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.glass-box:hover .homepage-card-icon {
+  transform: scale(1.15);
+  color: #1a1a1a;
+}
+
+.glass-box:hover .homepage-card-text {
+  color: #000;
+  font-weight: 700;
 }
 
 .card-css {
-  background: transparent !important;
-  backdrop-filter: blur(3px);
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: none;
+  background: rgba(255, 255, 255, 0.301) !important;
+  backdrop-filter: blur(20px);
+  color: #333 !important;
   border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+  transition: transform 0.3s ease;
 }
 
 .card-css:hover {
@@ -240,21 +624,7 @@ body, html {
   object-fit: cover;   
   border-radius: 10px;
 }
-.card {
-  background: transparent!important;
-  backdrop-filter: blur(3px) !important;
-  border: 0.5px solid rgba(0, 0, 0, 0.3);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  z-index: 1;
-}
-.card-bodyy{
-  padding: 25px 40px;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: none;
-  border-radius: 8px;
-}
+
 @media (max-width: 768px) {
   .card-css.imgs {
     grid-template-columns: repeat(1, 1fr); 
@@ -288,4 +658,120 @@ body, html {
     padding-bottom: 1rem;
   }
 }
+
+@media (max-width: 576px) {
+  .search-input {
+    height: 50px;
+    padding: 10px 45px 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Glowing Cards Styles */
+.glowing-cards-container {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+.glowing-cards-wrapper {
+  position: relative;
+}
+
+.glowing-cards-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.glowing-cards-responsive {
+  flex-direction: column;
+}
+
+.glowing-card-item {
+  position: relative;
+  flex: 1;
+  min-width: 14rem;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #333;
+  transition: all 0.4s ease-out;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+}
+
+.glowing-card-item h3 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.glowing-card-item p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  color: #555;
+  margin: 0;
+}
+
+.glowing-cards-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+}
+
+.glowing-cards-overlay-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 100%;
+}
+
+.glowing-card-overlay {
+  pointer-events: none;
+}
+
+@media (min-width: 576px) {
+  .glowing-cards-responsive {
+    flex-direction: row;
+  }
+}
+
+
+
+.trailsText {
+  position: relative;
+  width: 100%;
+  height: 80px;
+  line-height: 80px;
+  color: black;
+  font-size: 6em;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  will-change: transform, opacity;
+  overflow: hidden;
+}
+
+.trailsText > div {
+  padding-right: 0.05em;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+}
+
   

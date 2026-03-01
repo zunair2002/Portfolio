@@ -1,17 +1,27 @@
-"use client";
+/*Ensure you had installed the package
+or read our installation document. (go to lightswind.com/components/Installation)
+npm i lightswind@latest*/
 
 import React, { useEffect, useRef, useState } from 'react';
-// Ensure you have this utility or replace it with a standard class merger
-import { cn } from '../lib/utils'; 
+import { cn } from '../lib/utils';
 
-export interface GlowingCardProps extends React.HTMLAttributes<HTMLDivElement> {
+// Helper function to convert hex to rgba
+const hexToRgba = (hex: string, alpha: number): string => {
+  const r = parseInt(hex.slice(1, 3), 16);
+  const g = parseInt(hex.slice(3, 5), 16);
+  const b = parseInt(hex.slice(5, 7), 16);
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+};
+
+export interface GlowingCardProps {
   children: React.ReactNode;
   className?: string;
   glowColor?: string;
   hoverEffect?: boolean;
+  style?: React.CSSProperties;
 }
 
-export interface GlowingCardsProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface GlowingCardsProps {
   children: React.ReactNode;
   className?: string;
   /** Enable the glowing overlay effect */
@@ -50,20 +60,27 @@ export const GlowingCard: React.FC<GlowingCardProps> = ({
   className,
   glowColor = "#3b82f6",
   hoverEffect = true,
-  style,
   ...props
 }) => {
   return (
     <div
       className={cn(
-        "relative flex-1 min-w-[14rem] p-6 rounded-2xl text-black dark:text-white",
-        "bg-background border",
-        "transition-all duration-400 ease-out",
+        "glowing-card-item",
         className
       )}
       style={{
-        ...style,
-        '--glow-color': glowColor, 
+        '--glow-color': glowColor,
+        position: 'relative',
+        flex: '1',
+        minWidth: '14rem',
+        padding: '1.5rem',
+        borderRadius: '1rem',
+        backgroundColor: 'rgba(255, 255, 255, 0.3)',
+        border: '1px solid rgba(255, 255, 255, 0.25)',
+        color: '#333',
+        transition: 'all 0.4s ease-out',
+        backdropFilter: 'blur(20px)',
+        boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.1)',
       } as React.CSSProperties}
       {...props}
     >
@@ -71,9 +88,6 @@ export const GlowingCard: React.FC<GlowingCardProps> = ({
     </div>
   );
 };
-
-// Adding display name for safer type checking in the parent component
-GlowingCard.displayName = "GlowingCard";
 
 export const GlowingCards: React.FC<GlowingCardsProps> = ({
   children,
@@ -90,7 +104,6 @@ export const GlowingCards: React.FC<GlowingCardsProps> = ({
   borderRadius = "1rem",
   responsive = true,
   customTheme,
-  ...props
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
@@ -111,14 +124,15 @@ export const GlowingCards: React.FC<GlowingCardsProps> = ({
       setMousePosition({ x, y });
       setShowOverlay(true);
 
+      // Using string concatenation for style properties
       overlay.style.setProperty('--x', x + 'px');
       overlay.style.setProperty('--y', y + 'px');
-      overlay.style.setProperty('--opacity', glowOpacity.toString());
+      overlay.style.setProperty('--glow-opacity', glowOpacity.toString());
     };
 
     const handleMouseLeave = () => {
       setShowOverlay(false);
-      overlay.style.setProperty('--opacity', '0');
+      overlay.style.setProperty('--glow-opacity', '0');
     };
 
     container.addEventListener('mousemove', handleMouseMove);
@@ -135,8 +149,8 @@ export const GlowingCards: React.FC<GlowingCardsProps> = ({
     '--max-width': maxWidth,
     '--padding': padding,
     '--border-radius': borderRadius,
-    '--animation-duration': animationDuration + 'ms',
-    '--glow-radius': glowRadius + 'rem',
+    '--animation-duration': animationDuration + 'ms', // Concatenation
+    '--glow-radius': glowRadius + 'rem', // Concatenation
     '--glow-opacity': glowOpacity,
     backgroundColor: backgroundColor || undefined,
     ...customTheme,
@@ -144,23 +158,35 @@ export const GlowingCards: React.FC<GlowingCardsProps> = ({
 
   return (
     <div
-      className={cn("relative w-full", className)}
-      style={containerStyle}
-      {...props}
+      className={cn("glowing-cards-container", className)}
+      style={{
+        ...containerStyle,
+        position: 'relative',
+        width: '100%',
+      } as React.CSSProperties}
     >
       <div
         ref={containerRef}
-        className={cn(
-          "relative max-w-[var(--max-width)] mx-auto",
-          "px-6 py-2"
-        )}
-        style={{ padding: "var(--padding)" }}
+        className="glowing-cards-wrapper"
+        style={{
+          position: 'relative',
+          maxWidth: 'var(--max-width)',
+          margin: '0 auto',
+          padding: 'var(--padding)',
+        } as React.CSSProperties}
       >
         <div
           className={cn(
-            "flex items-center justify-center flex-wrap gap-[var(--gap)]",
-            responsive && "flex-col sm:flex-row"
+            "glowing-cards-inner",
+            responsive && "glowing-cards-responsive"
           )}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexWrap: 'wrap',
+            gap: 'var(--gap)',
+          } as React.CSSProperties}
         >
           {children}
         </div>
@@ -168,49 +194,56 @@ export const GlowingCards: React.FC<GlowingCardsProps> = ({
         {enableGlow && (
           <div
             ref={overlayRef}
-            className={cn(
-              "absolute inset-0 pointer-events-none select-none",
-              "opacity-0 transition-all duration-[var(--animation-duration)] ease-out"
-            )}
+            className="glowing-cards-overlay"
             style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              pointerEvents: 'none',
+              userSelect: 'none',
+              transition: `opacity var(--animation-duration)ms ease-out`,
               WebkitMask:
                 "radial-gradient(var(--glow-radius) var(--glow-radius) at var(--x, 0) var(--y, 0), #000 1%, transparent 50%)",
               mask:
                 "radial-gradient(var(--glow-radius) var(--glow-radius) at var(--x, 0) var(--y, 0), #000 1%, transparent 50%)",
-              opacity: showOverlay ? 'var(--opacity)' : '0',
-            }}
+              opacity: showOverlay ? glowOpacity : 0,
+            } as React.CSSProperties}
           >
             <div
               className={cn(
-                "flex items-center justify-center flex-wrap gap-[var(--gap)] max-w-[var(--max-width)] center mx-auto",
-                responsive && "flex-col sm:flex-row"
+                "glowing-cards-overlay-inner",
+                responsive && "glowing-cards-responsive"
               )}
-              style={{ padding: "var(--padding)" }}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexWrap: 'wrap',
+                gap: 'var(--gap)',
+                maxWidth: 'var(--max-width)',
+                margin: '0 auto',
+                padding: 'var(--padding)',
+              } as React.CSSProperties}
             >
-              {React.Children.map(children, (child) => {
-                if (React.isValidElement(child)) {
-                   // Safe check for component type using displayName
-                   const isGlowingCard = (child.type as any).displayName === 'GlowingCard' || child.type === GlowingCard;
-
-                   if (isGlowingCard) {
-                    // Explicitly cast props to GlowingCardProps to access glowColor
-                    const props = child.props as GlowingCardProps;
-                    const cardGlowColor = props.glowColor || "#3b82f6";
-                    
-                    return React.cloneElement(child, {
-                      className: cn(
-                        props.className,
-                        "bg-opacity-15 dark:bg-opacity-15",
-                        "border-opacity-100 dark:border-opacity-100"
-                      ),
-                      style: {
-                        ...props.style,
-                        backgroundColor: cardGlowColor + "15", // Hex alpha assumption
-                        borderColor: cardGlowColor,
-                        boxShadow: "0 0 0 1px inset " + cardGlowColor,
-                      },
-                    } as any);
-                  }
+              {React.Children.map(children, (child, index) => {
+                if (React.isValidElement<GlowingCardProps>(child) && child.type === GlowingCard) {
+                  const childProps = child.props as GlowingCardProps;
+                  const cardGlowColor = childProps.glowColor || "#3b82f6";
+                  const rgbaColor = hexToRgba(cardGlowColor, 0.15);
+                  return React.cloneElement(child, {
+                    className: cn(
+                      childProps.className,
+                      "glowing-card-overlay"
+                    ),
+                    style: {
+                      ...(childProps.style || {}),
+                      backgroundColor: rgbaColor,
+                      borderColor: cardGlowColor,
+                      boxShadow: `0 0 20px ${cardGlowColor}40, 0 0 40px ${cardGlowColor}30, inset 0 0 0 1px ${cardGlowColor}`,
+                    },
+                  });
                 }
                 return child;
               })}
@@ -222,4 +255,4 @@ export const GlowingCards: React.FC<GlowingCardsProps> = ({
   );
 };
 
-export default GlowingCards;
+export { GlowingCards as default };

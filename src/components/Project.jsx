@@ -1,10 +1,18 @@
-import React from "react";
-import "../App.css";
+
+
+
+
+
+
+
+
+import React from 'react';
+import '../App.css';
 import { Link } from "react-router-dom";
+import { GlowingCards, GlowingCard } from "@/components/lightswind/glowing-cards"
 import ParticlesBackground from '@/components/lightswind/particles-background';
 
-
-function Project() {
+const Project = () => {
   const cardProjects = [
     {
       id: 1,
@@ -27,49 +35,64 @@ function Project() {
       description:
 "An expense tracker logs all your income and spending using simple charts to show exactly where your money goes. This helps you easily understand your financial habits and make smarter plans for your budget."
     },
-    // {
-    //   id: 4,
-    //   type: "Final Year Project",
-    //   name: "Study Bhai",
-    //   description:
-    //     "An educational platform for students providing personalized experiences, interactive lessons, and instant doubt clearing through an AI chatbot.",
-    // },
+    {
+      id: 4,
+      type: "Final Year Project",
+      name: "Study Bhai",
+      description:
+        "An educational platform for students providing personalized experiences, interactive lessons, and instant doubt clearing through an AI chatbot.",
+    },
   ];
 
+
+  let glowColors=[{id: 0, color: "#F28B82"},{id: 1, color: "#FDD663"},{id: 2, color: "#81C995"},{id: 3, color: "#C58AF9"}]
+  const glow = glowColors.find(gc => gc.id === cardProjects.id);
+  console.log(cardProjects, "GLOWWW")
   return (
     <>
-     <div style={{ position: "relative", minHeight: "100vh" }}>
-          <div style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "100%", zIndex: -1 }}>
-            <ParticlesBackground
-              colors={['#00ffff', '#ff00ff', '#ffaa00']}
-              size={3}
-              countDesktop={200}
-                    countTablet={250}
-                    countMobile={300}
-              zIndex={-1}
-              height="100%"
-            />
-          </div>
-    <h1 className="fancy-title text-center mt-5">Project Details</h1>
-      <div className="container py-5">
-        <div className="row justify-content-center g-4">
-          {cardProjects.map((project) => (
-            <div className="col-lg-5 col-md-6" key={project.id}>
-              <Link to={`/project/${project.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                <div className="card h-100 border-0 rounded-4 p-4 card-css">
-                  <div className="card-body">
-                    <p className="mb-1">{project.type}</p>
-                    <h2 className="card-title mb-3">{project.name}</h2>
-                    <p className="card-text">{project.description}</p>
-                  </div>
-                  <hr></hr>
+    <ParticlesBackground
+      colors={[ "#F28B82", "#FDD663", "#81C995", "#8AB4F8", "#C58AF9"]
+    }   
+      size={6}
+      countDesktop={80}
+      countTablet={60}
+      countMobile={40}
+      zIndex={-1}
+      height="100vh"
+    />
+
+      <div className="animated-background"></div>
+      <div className="container-fluid min-vh-100 d-flex flex-column justify-content-center align-items-center text-center content-container">
+        <div className="w-100" style={{ maxWidth: '1200px', padding: '0 15px' }}>
+          <div className="container about-me-content">
+            <div className="profile-container">
+              <h2 className="about-me-title">PROJECT DETAILS</h2>
+              <div className="container py-5">
+                <div className="row justify-content-center g-4">
+                  {cardProjects.map((project,index) => (
+                    <div className="col-lg-6 col-md-6" key={project.id}>
+                      <GlowingCards>
+                      <GlowingCard glowColor={glow?.color} className="space-y-4">
+                      <Link to={`/project/${project.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                          <div className="card-body">
+                            <p className="mb-1">{project.type}</p>
+                            <h2 className="card-title mb-3">{project.name}</h2>
+                            <p className="card-text">{project.description}</p>
+                          </div>
+              
+                      </Link>
+                        </GlowingCard>
+                      </GlowingCards>
+                    </div>
+                  ))}
+                  
                 </div>
-              </Link>
+              </div>
+             
             </div>
-          ))}
+          </div>
           
         </div>
-      </div>
       </div>
     </>
   );

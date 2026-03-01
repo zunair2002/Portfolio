@@ -19,9 +19,9 @@ interface ParticlesBackgroundProps {
 const ParticlesBackground: React.FC<ParticlesBackgroundProps> = ({
   colors = ['#ff223e', '#5d1eb2', '#ff7300'],
   size = 3,
-  countDesktop = 160,
-  countTablet = 350,
-  countMobile = 500,
+  countDesktop = 60,
+  countTablet = 50,
+  countMobile = 40,
   zIndex = 0,
   height = '100vh',
 }) => {
