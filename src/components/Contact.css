@@ -1,19 +1,29 @@
+/* --- Global Card Styling --- */
 .contact-card {
   background: rgba(255, 255, 255, 0.301);
   backdrop-filter: blur(20px);
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.25);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  /* Boxes ko align karne ke liye height stretch */
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column;
 }
 
-.contact-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.2);
+/* Glowing component ke internal wrappers ko stretch karne ke liye */
+.glowing-cards-container, 
+.glowing-card-item {
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column;
 }
 
+/* --- Header & Name --- */
 .contact-header {
   text-align: center;
+  width: 100%;
 }
 
 .contact-name {
@@ -21,67 +31,66 @@
   font-size: clamp(2rem, 3.5vw, 3rem);
   font-weight: 700;
   color: #000000;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* --- EMAIL OVERFLOW RESOLVED --- */
 .contact-email {
-  display: inline-flex;
-  align-items: center;
+  display: block; 
+  width: 100%;
   font-family: "Montserrat", sans-serif;
-  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-size: clamp(0.8rem, 2vw, 1.5rem); /* Responsive size */
   font-weight: 600;
   color: #0f7acd;
   text-decoration: none;
+  
+  /* Ye lines text ko box ke andar wrap karengi (Fixed for your image) */
+  overflow-wrap: anywhere; 
+  word-break: break-all;
+  white-space: normal;
+  
+  padding: 0.5rem 0;
+  box-sizing: border-box;
+  text-align: center;
   transition: all 0.3s ease;
-  padding: 0.5rem 1rem;
-  border-radius: 10px;
 }
 
 .contact-email:hover {
   color: #0A66C2;
-  background: rgba(15, 122, 205, 0.1);
-  transform: scale(1.05);
 }
 
+/* --- Details Section --- */
 .contact-details {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
+  flex-grow: 1; /* Neeche wale box ke sath align karne ke liye space fill karega */
 }
 
 .contact-detail-item {
   display: flex;
-  align-items: flex-start;
-  gap: 1.5rem;
-  padding: 1.5rem;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.2rem;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 15px;
   transition: all 0.3s ease;
 }
 
-.contact-detail-item:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: translateX(5px);
-}
-
-.contact-icon {
-  flex-shrink: 0;
-  margin-top: 0.25rem;
-}
-
 .contact-detail-text {
   font-family: "Montserrat", sans-serif;
-  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  font-size: clamp(1rem, 1.6vw, 1.3rem);
   font-weight: 500;
   color: #333;
   margin: 0;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
+/* --- Social Links Section --- */
 .social-title {
   font-family: "Montserrat", sans-serif;
-  font-size: clamp(1.8rem, 2.5vw, 2.2rem);
+  font-size: 1rem;
   font-weight: 700;
   color: #333;
   margin-bottom: 2rem;
@@ -90,7 +99,7 @@
 .social-links {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
   width: 100%;
 }
 
@@ -99,103 +108,69 @@
   flex-direction: column;
   align-items: center;
   text-decoration: none;
-  padding: 1.5rem;
+  padding: 1.2rem;
   border-radius: 15px;
   background: rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
 }
 
-.social-link-item:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: translateY(-5px) scale(1.05);
-}
-
 .social-link-text {
   font-family: "Montserrat", sans-serif;
-  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+  font-size: clamp(1.1rem, 1.6vw, 1.3rem);
   font-weight: 600;
   color: #333;
-  transition: all 0.3s ease;
 }
 
-.social-link-item:hover .social-link-text {
-  color: #000;
-}
+/* --- RESPONSIVE FIXES --- */
 
-@media (max-width: 992px) {
+/* Tablet (Laptops/Screens) */
+@media (max-width: 991px) {
   .contact-card {
-    margin-bottom: 2rem;
-  }
-  
-  .contact-details {
-    gap: 1.5rem;
-  }
-  
-  .contact-detail-item {
-    padding: 1.25rem;
+    margin-bottom: 0; /* Bootstrap g-4 will handle spacing */
   }
   
   .social-links {
-    flex-direction: row;
+    flex-direction: row; /* Mobile/Tablet par social links line mein ayenge */
     justify-content: center;
-    gap: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
   }
   
   .social-link-item {
     flex: 1;
-    max-width: 150px;
+    min-width: 120px;
+    padding: 1rem;
   }
 }
 
-@media (max-width: 768px) {
-  .contact-name {
-    font-size: clamp(1.8rem, 4vw, 2.5rem);
+/* Mobile Phones */
+@media (max-width: 576px) {
+  .contact-card {
+    padding: 2rem 1rem !important;
   }
   
   .contact-email {
-    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    font-size: 0.85rem; /* Email text thora chota for mobile */
   }
-  
-  .contact-detail-text {
-    font-size: clamp(1rem, 2vw, 1.2rem);
-  }
-  
+
   .contact-detail-item {
     flex-direction: column;
-    align-items: center;
     text-align: center;
-    gap: 1rem;
+    gap: 0.8rem;
   }
   
   .social-links {
-    flex-direction: column;
-    gap: 1.5rem;
+    flex-direction: column; /* Chote mobile par wapis column mein */
   }
   
   .social-link-item {
     max-width: 100%;
   }
-  
-  .social-link-text {
-    font-size: clamp(1.1rem, 2vw, 1.3rem);
-  }
 }
 
-@media (max-width: 576px) {
-  .contact-card {
-    padding: 2rem 1.5rem !important;
-  }
-  
-  .contact-details {
-    gap: 1.25rem;
-  }
-  
-  .contact-detail-item {
-    padding: 1rem;
-  }
-  
-  .contact-icon {
-    width: 28px;
-    height: 28px;
+/* Extra Small Screens fix */
+@media (max-width: 380px) {
+  .contact-email {
+    font-size: 0.75rem;
   }
 }

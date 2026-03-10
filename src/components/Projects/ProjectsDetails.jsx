@@ -3,235 +3,94 @@ import { useParams } from "react-router-dom";
 import ParticlesBackground from '@/components/lightswind/particles-background';
 
 function ProjectDetails() {
-  const { id } = useParams(); 
+  const { id } = useParams();
 
-  let content;
+  // Consistent styles for both top and bottom boxes
+  const sectionWrapperStyle = {
+    maxWidth: '1000px', // Uniform width for both boxes
+    margin: '0 auto',
+    width: '100%'
+  };
 
-  if (id === "1") {
-    content = (
-      
-      <div className="container mt-5">
-        <div className="px-4 card-css mb-4 py-3">
-        <h1 className="fancy-title mt-5 text-center">Project 1</h1>
-        <hr></hr>
-        <p>
-          
-  This project is a real-time chat application built with the MERN stack (MongoDB, Express, React, and Node). It provides a secure user system where all passwords are safely encrypted with bcrypt before being saved in the database. Users first create an account, and after a successful login, the backend gives them a JWT token that allows access to all protected chat features.
+  const projectData = {
+    "1": {
+      name: "Project 1",
+      desc: "This project is a real-time chat application built with the MERN stack (MongoDB, Express, React, and Node). It provides a secure user system where all passwords are safely encrypted with bcrypt before being saved in the database. Users first create an account, and after a successful login, the backend gives them a JWT token that allows access to all protected chat features.\n\nOnce logged in, the client connects to the server through Socket.IO, creating a live connection for instant messaging. Users can send and receive messages in real time without refreshing the page, and every message is stored in MongoDB for chat history.",
+      tags: ["React", "TailwindCSS", "DaisyUI", "Node.js", "Express", "WebSocket.IO", "REST api's", "MongoDB"],
+      images: ["/ch3.png", "/ch2.png", "/ch1.png", "/chat1.png"]
+    },
+    "2": {
+      name: "Project 2",
+      desc: "This project is a modern (crypto wallet) user interface designed to display live cryptocurrency data in a clear and visually appealing layout. The dashboard includes a searchable list of popular coins showing key information such as price, market cap, ATH, and daily performance. It also features an interactive Bitcoin price chart that allows users to track market movement over time.\n\nIts clean grid layout, smooth cards, and gradient backgrounds provide a professional look, while the responsive design ensures the interface works well on any device.",
+      tags: ["React", "TailwindCSS", "DaisyUI", "Node.js", "Express", "Google Charts", "CoinsAPI", "REST api's"],
+      images: ["/a1.png", "/a2.png", "/a3.png", "/a4.png"]
+    },
+    "3": {
+      name: "Project 3",
+      desc: "An (expense tracker) is a financial tool designed for the detailed tracking of all your transactions. It provides a structured way to log both income and expenses by capturing key details for each entry. This process creates a complete and organized record of your financial activities.\n\nBeyond simply recording data, this application offers analytical features to guide your financial planning. It transforms your transaction history into useful insights through clear dashboards and visual reports.",
+      tags: ["React", "TailwindCSS", "DaisyUI", "Node.js", "JWT", "Express", "REST api's", "MongoDB"],
+      images: ["/e1.png", "/e2.png", "/e3.png", "/e4.png"]
+    },
+    "4": {
+      name: "Project 4",
+      desc: "This project is a real-time chat application built with the MERN stack. It provides a secure user system where passwords are encrypted with bcrypt. Users first create an account, and after a successful login, the backend gives them a JWT token. Once logged in, the client connects to the server through Socket.IO, creating a live connection for instant messaging.",
+      tags: ["React", "TailwindCSS", "DaisyUI", "Node.js", "Express", "WebSocket.IO", "REST api's", "MongoDB"],
+      images: ["/c5.jpg", "/c2.png", "/c1.png", "/c1.png"]
+    }
+  };
 
-<br /><br />
+  const project = projectData[id];
 
-Once logged in, the client connects to the server through Socket.IO, creating a live connection for instant messaging. Users can send and receive messages in real time without refreshing the page, and every message is stored in MongoDB for chat history. The application also includes useful features like online/offline status, typing indicators, and support for private or group chats, all wrapped in a clean, responsive, and modern UI experience.
-</p>
-<div className="d-flex flex-wrap gap-2">
-                  <span className="skill-tag">React</span>
-                  <span className="skill-tag">TailwindCSS</span>
-                  <span className="skill-tag">DaisyUI</span>
-                  <span className="skill-tag">Node.js</span>
-                  <span className="skill-tag">Express</span>
-                  <span className="skill-tag">WebSocket.IO</span>
-                  <span className="skill-tag">REST api's</span>
-                  <span className="skill-tag">MongoDB</span>
-                </div>
-</div>
-<p className="text-bold fw-5 fs-1 fancy-title text-center">Demo Pictures</p>
-<div className="card-css imgs">
-        <img
-    src="/ch3.png" 
-    alt="pic"
-    className="img-fluid rounded mb-3"
-  />
-        <img
-          src="/ch2.png"
-          alt="pic"
-          className="img-fluid rounded mb-3"
-        />
-        <img
-          src="/ch1.png"
-          alt="pic"
-          className="img-fluid rounded"
-        />
-        <img
-          src="/chat1.png"
-          alt="pic"
-          className="img-fluid rounded"
-        />
-        </div>
-      </div>
-    );
-  } else if (id === "2") {
-    content = (
-        <div className="container mt-5">
-        <div className="px-4 card-css mb-4 py-3">
-        <h1 className="fancy-title mt-5 text-center">Project 2</h1>
-        <hr></hr>
-        <p>
-          
-This project is a modern <strong>(crypto wallet)</strong> user interface designed to display live cryptocurrency data in a clear and visually appealing layout. The dashboard includes a searchable list of popular coins showing key information such as price, market cap, ATH, and daily performance. It also features an interactive Bitcoin price chart that allows users to track market movement over time.
-<br /><br />
-
-The dashboard also includes sections like a blog preview and an informational area to make the experience more engaging and informative. Its clean grid layout, smooth cards, and gradient backgrounds provide a professional look, while the responsive design and smooth animations ensure the interface works well on any device and feels intuitive to use.
-</p>
-<div className="d-flex flex-wrap gap-2">
-                  <span className="skill-tag">React</span>
-                  <span className="skill-tag">TailwindCSS</span>
-                  <span className="skill-tag">DaisyUI</span>
-                  <span className="skill-tag">Node.js</span>
-                  <span className="skill-tag">Express</span>
-                  <span className="skill-tag">Google Charts</span>
-                  <span className="skill-tag">CoinsAPI</span>
-                  <span className="skill-tag">REST api's</span>
-                </div>
-</div>
-<p className="text-bold fw-5 fs-1 fancy-title text-center">Demo Pictures</p>
-<div className="card-css imgs">
-        <img
-    src="/a1.png" 
-    alt="pic"
-    className="img-fluid rounded mb-3"
-  />
-        <img
-          src="/a2.png"
-          alt="pic"
-          className="img-fluid rounded mb-3"
-        />
-        <img
-          src="/a3.png"
-          alt="pic"
-          className="img-fluid rounded mb-3"
-        />
-        <img
-          src="/a4.png"
-          alt="pic"
-          className="img-fluid rounded mb-3"
-        />
-        </div>
-      </div>
-    );
-  } else if (id === "3") {
-    content = (
-    <div className="container mt-5">
-        <div className="px-4 card-css mb-4 py-3">
-        <h1 className="fancy-title mt-5 text-center">Project 3</h1>
-        <hr></hr>
-        <p>
-          
-An <strong>(expense tracker)</strong> is a financial tool designed for the detailed tracking of all your transactions. It provides a structured way to log both income and expenses by capturing key details for each entry. This process creates a complete and organized record of your financial activities, allowing for effective financial management and review.
-<br /><br />
-Beyond simply recording data, this application offers analytical features to guide your financial planning. It transforms your transaction history into useful insights through clear dashboards and visual reports. These tools effectively show your spending patterns and the balance between income and expenses, helping you make informed, fact-based decisions about your budget.
-</p>
-<div className="d-flex flex-wrap gap-2">
-                  <span className="skill-tag">React</span>
-                  <span className="skill-tag">TailwindCSS</span>
-                  <span className="skill-tag">DaisyUI</span>
-                  <span className="skill-tag">Node.js</span>
-                  <span className="skill-tag">JWT</span>
-                  <span className="skill-tag">Express</span>
-                  <span className="skill-tag">REST api's</span>
-                  <span className="skill-tag">MongoDB</span>
-                </div>
-</div>
-<p className="text-bold fw-5 fs-1 fancy-title text-center">Demo Pictures</p>
-<div className="card-css imgs">
-        <img
-    src="/e1.png" 
-    alt="pic"
-    className="img-fluid rounded mb-3"
-  />
-        <img
-          src="/e2.png"
-          alt="pic"
-          className="img-fluid rounded mb-3"
-        />
-        <img
-          src="/e3.png"
-          alt="pic"
-          className="img-fluid rounded mb-3"
-        />
-        <img
-          src="/e4.png"
-          alt="pic"
-          className="img-fluid rounded mb-3"
-        />
-        </div>
-      </div>
-    );
-  } else if (id === "4") {
-    content = (
-      <div className="container mt-5">
-        <div className="px-4 card-css mb-4 py-3">
-        <h1 className="fancy-title mt-5 text-center">Project 4</h1>
-        <hr></hr>
-        <p>
-          
-  This project is a real-time chat application built with the MERN stack (MongoDB, Express, React, and Node). It provides a secure user system where all passwords are safely encrypted with bcrypt before being saved in the database. Users first create an account, and after a successful login, the backend gives them a JWT token that allows access to all protected chat features.
-
-<br /><br />
-
-Once logged in, the client connects to the server through Socket.IO, creating a live connection for instant messaging. Users can send and receive messages in real time without refreshing the page, and every message is stored in MongoDB for chat history. The application also includes useful features like online/offline status, typing indicators, and support for private or group chats, all wrapped in a clean, responsive, and modern UI experience.
-</p>
-<div className="d-flex flex-wrap gap-2">
-                  <span className="skill-tag">React</span>
-                  <span className="skill-tag">TailwindCSS</span>
-                  <span className="skill-tag">DaisyUI</span>
-                  <span className="skill-tag">Node.js</span>
-                  <span className="skill-tag">Express</span>
-                  <span className="skill-tag">WebSocket.IO</span>
-                  <span className="skill-tag">REST api's</span>
-                  <span className="skill-tag">MongoDB</span>
-                </div>
-</div>
-<p className="text-bold fw-5 fs-1 fancy-title text-center">Demo Pictures</p>
-<div className="card-css imgs">
-        <img
-    src="/c5.jpg" 
-    alt="pic"
-    className="img-fluid rounded mb-3"
-  />
-        <img
-          src="/c2.png"
-          alt="pic"
-          className="img-fluid rounded mb-3"
-        />
-        <img
-          src="/c1.png"
-          alt="pic"
-          className="img-fluid rounded mb-3"
-        />
-        <img
-          src="/c1.png"
-          alt="pic"
-          className="img-fluid rounded mb-3"
-        />
-        </div>
-      </div>
-    );
-  } else {
-    content = (
-      <div className="container mt-5">
+  if (!project) {
+    return (
+      <div className="container mt-5 text-center">
         <h1 className="text-secondary">Project Not Found</h1>
-        <p>The project you are looking for does not exist.</p>
       </div>
     );
   }
 
   return (
     <>
-    <ParticlesBackground
-      colors={[ "#F28B82", 
-  "#FDD663", 
-  "#81C995", 
-  "#8AB4F8", 
-  "#C58AF9"
-      ]
-    }   
-      size={6}
-      countDesktop={80}
-      countTablet={60}
-      countMobile={40}
-      zIndex={-1}
-      height="100vh"
-    />
-    <div>{content}</div>
+      <ParticlesBackground
+        colors={["#F28B82", "#FDD663", "#81C995", "#8AB4F8", "#C58AF9"]}
+        size={6} countDesktop={80} countTablet={60} countMobile={40} zIndex={-1} height="100vh"
+      />
+      
+      <div className="container mt-5 pb-5">
+        <div style={sectionWrapperStyle}>
+          
+          {/* TOP BOX: Details */}
+          <div className="card-css p-lg-5 p-4 mb-5" style={{boxShadow: "0 10px 25px rgba(0,0,0,0.35)"}}>
+            <h1 className="text-center mb-4 homepage-name">{project.name}</h1>
+            <hr className="mb-4" />
+            <p className="mb-4 profile-bio" style={{ lineHeight: '1.8', fontSize: '1.1rem' }}>
+              {project.desc}
+            </p>
+            <div className="d-flex flex-wrap gap-2 mt-4 justify-content-center">
+              {project.tags.map(tag => (
+                <span key={tag} className="skill-tag">{tag}</span>
+              ))}
+            </div>
+          </div>
+
+          {/* HEADING IN BETWEEN */}
+          <h2 className="homepage-name text-center mb-4" style={{ fontSize: '1.5rem' }}>Demo Pictures</h2>
+
+          {/* BOTTOM BOX: Images (Same width and padding) */}
+          <div className="card-css p-lg-5 p-4 imgs" style={{boxShadow: "0 10px 25px rgba(0,0,0,0.35)"}}>
+            {project.images.map((src, index) => (
+              <img
+                key={index}
+                src={src}
+                alt={`demo-${index}`}
+                className="img-fluid rounded"
+                style={{ width: '100%', objectFit: 'cover' }}
+              />
+            ))}
+          </div>
+
+        </div>
+      </div>
     </>
   );
 }

@@ -19,11 +19,11 @@ interface ParticlesBackgroundProps {
 const ParticlesBackground: React.FC<ParticlesBackgroundProps> = ({
   colors = ['#ff223e', '#5d1eb2', '#ff7300'],
   size = 3,
-  countDesktop = 60,
-  countTablet = 50,
-  countMobile = 40,
+  countDesktop = 90,
+  countTablet = 60,
+  countMobile = 50,
   zIndex = 0,
-  height = '100vh',
+  height = '100%',
 }) => {
   useLayoutEffect(() => {
     const script = document.createElement('script');
@@ -96,14 +96,14 @@ const ParticlesBackground: React.FC<ParticlesBackgroundProps> = ({
     <div
       id="js-particles"
       style={{
-        width: '100%',
-        height: height,
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        zIndex: zIndex,
-        pointerEvents: 'none',
-      }}
+      width: '100%',
+      height: '100%',
+      position: 'fixed',   // change here
+      top: 0,
+      left: 0,
+      zIndex: zIndex,
+      pointerEvents: 'none',
+    }}
     >
       <style>{`
         #js-particles canvas {

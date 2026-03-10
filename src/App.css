@@ -7,13 +7,11 @@ body {
   color: #333;
   width: 100%;
   height: 100%;
-  background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
 
 .animated-background {
-  /* background: linear-gradient(45deg, #f48fb1, #b388ff, #90caf9, #a5d6a7, #fff176); */
   margin: 0;
   width: 100%;
   height: 100%;
@@ -66,9 +64,18 @@ body {
   gap: 1rem;
 }
 
+.homepage-avatar {
+  width: clamp(200px, 25vw, 350px);
+  height: clamp(200px, 25vw, 350px);
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+  flex-shrink: 0;
+}
+
 .homepage-name {
   font-family: "Montserrat", sans-serif;
-  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-size: 2.2rem;
   font-weight: 700;
   color: #000000;
   margin: 0;
@@ -77,34 +84,20 @@ body {
 
 .homepage-description {
   font-family: "Montserrat", sans-serif;
-  font-size: clamp(1rem, 1.5vw, 1.3rem);
+  font-size: 1rem;
   font-weight: 400;
   color: #555;
   margin: 0;
   line-height: 1.6;
+  margin-bottom: 10px;
 }
 
-.homepage-buttons {
-  display: flex;
-  flex-direction: row;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  width: 100%;
-  justify-content: center;
-}
 
 .homepage-buttons .glass-box {
   width: 100%;
   min-width: 280px;
 }
 
-.homepage-card {
-  padding: 2.5rem 2rem;
-  text-align: center;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
 
 .homepage-card-icon {
   font-size: 3.5rem;
@@ -122,120 +115,92 @@ body {
   color: #333;
   transition: all 0.3s ease;
 }
-
-@media (max-width: 992px) {
-  .homepage-avatar {
-    width: clamp(150px, 30vw, 250px);
-    height: clamp(150px, 30vw, 250px);
-  }
-  
-  .homepage-buttons {
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-    gap: 1rem;
-  }
-
-  .homepage-buttons .glass-box {
-    min-width: 200px;
-  }
-
-  .homepage-card {
-    padding: 2rem 1.5rem;
-  }
-
-  .homepage-card-icon {
-    font-size: 3rem;
-  }
-
-  .homepage-card-text {
-    font-size: 1.2rem;
-  }
-  
-  .homepage-info {
-    text-align: left;
-  }
-}
-
-@media (max-width: 768px) {
-  .homepage-avatar {
-    width: clamp(120px, 35vw, 200px);
-    height: clamp(120px, 35vw, 200px);
-  }
-
-  .homepage-buttons {
-    max-width: 100%;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-  }
-
-  .homepage-buttons .glass-box {
-    min-width: 140px;
-    flex: 1 1 auto;
-  }
-
-  .homepage-card {
-    padding: 1.75rem 1.5rem;
-  }
-
-  .homepage-card-icon {
-    font-size: 2.5rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .homepage-card-text {
-    font-size: 1.1rem;
-  }
-  
-  .homepage-info {
-    gap: 0.5rem;
-  }
-}
-
-.search-container {
+/* --- Base Container Fixes --- */
+.content-container {
   position: relative;
-  width: 100%;
-  max-width: 500px;
+  z-index: 1;
+  pointer-events: auto; /* Mouse detection enable karne ke liye */
+}
+
+.homepage-buttons {
+  width: 100% !important;
+  max-width: 100% !important;
+  display: block; /* Flex hata diya taake Bootstrap Row kaam kare */
+  overflow: visible !important; /* Glow ko cut hone se bachane ke liye */
   margin: 0 auto;
 }
 
-.search-input {
-  width: 100%;
-  height: 55px;
-  padding: 10px 50px 10px 25px;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
-  border-radius: 50px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: #333;
-  font-size: 1rem;
-  outline: none;
-  transition: all 0.3s ease;
+/* --- Glowing Card Core Fix (Effect visible rakhne ke liye) --- */
+.homepage-card, [class*="GlowingCard"] {
+  position: relative;
+  overflow: visible !important; 
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-.search-input::placeholder {
-  color: #333;
+/* --- Responsiveness (As per your demand) --- */
+
+/* Desktop: col-lg-3 (4 cards per row) */
+@media (min-width: 992px) {
+  .homepage-avatar {
+    width: 150px;
+    height: 150px;
+  }
+  .homepage-buttons {
+    padding: 0 2rem;
+  }
 }
 
-.search-input:focus {
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  box-shadow: 0 0 0 4px rgba(176, 176, 176, 0.2);
+/* Tablet: col-sm-6 (2 cards per row) */
+@media (max-width: 991px) {
+  .homepage-avatar {
+    width: clamp(130px, 20vw, 150px);
+    height: clamp(130px, 20vw, 150px);
+  }
+
+  .homepage-buttons {
+    width: 100% !important;
+    padding: 0 15px;
+  }
+
+  /* MD/SM par width 100% rakhne ke liye */
+  .col-sm-6 {
+    width: 50% !important; /* 2 cards per row */
+    flex: 0 0 auto;
+  }
+  
+  .homepage-card {
+    padding: 2rem 1rem;
+  }
 }
 
-.search-icon {
-  position: absolute;
-  top: 50%;
-  right: 20px;
-  transform: translateY(-50%);
-  color: #333;
-  font-size: 1.2rem;
-  pointer-events: none;
+/* Mobile: col-12 (1 card per row) */
+@media (max-width: 576px) {
+  .homepage-avatar {
+    width: 120px;
+    height: 120px;
+  }
+
+  .col-12 {
+    width: 100% !important; /* 1 card per row */
+    flex: 0 0 auto;
+  }
+
+  .homepage-buttons {
+    padding: 0 10px;
+  }
+
+  .homepage-name {
+    font-size: 1.8rem;
+  }
 }
+
+
 
 .about-me-content {
   border-top: 1px solid rgba(255, 255, 255, 0.4);
-  padding-top: 2.5rem;
+  padding-top: 2rem;
 }
 
 .profile-container {
@@ -246,20 +211,30 @@ body {
 
 .about-me-title {
   font-family: "Montserrat", sans-serif;
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: 2.2rem;
   font-weight: 700;
+  padding-bottom: 10px;
   color: #000000;
   text-align: center;
-  margin-bottom: 3rem;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+.wow-me-title{
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 120px;
+  text-align: center;
   letter-spacing: -0.02em;
   text-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
 }
 
 .profile-bio {
-  font-size: clamp(1.2rem, 2vw, 1.5rem);
-  line-height: 1.8;
+  font-size: 1.2rem;
+  line-height: 2;
   color: #333;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   text-align: center;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
@@ -306,19 +281,19 @@ body {
 }
 
 .skill-tag {
-  background-color: #ffffff7a;
-  color: #333;
-  padding: clamp(10px, 1.2vw, 14px) clamp(18px, 2vw, 24px);
+  background-color: #0b0b0ba7;
+  color: #ffffff;
+  padding: 6px 12px;
   border-radius: 50px;
-  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  font-size: 0.9rem;
   font-weight: 600;
   cursor: default;
   transition: all 0.3s ease;
 }
 
 .skill-tag:hover {
-  background-color: #414243;
-  color: #ffffff;
+  background-color: #0b0b0ba7;
+  color: #bbbbbbd4;
   transform: translateY(-2px);
 }
 
@@ -693,7 +668,7 @@ body {
   position: relative;
   flex: 1;
   min-width: 14rem;
-  padding: 1.5rem;
+  padding: 1.2rem; /* 1.5rem se kam karke 1.2rem kiya */
   border-radius: 1rem;
   background: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(20px);
@@ -702,7 +677,6 @@ body {
   transition: all 0.4s ease-out;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
 }
-
 .glowing-card-item h3 {
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
