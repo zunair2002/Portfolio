@@ -57,7 +57,7 @@ const Aboutme = () => {
                   >
                     <span className="skill-tag">MERN-stack</span>
                     <span className="skill-tag">UI-UX Design</span>
-                    <span className="skill-tag">AI Developer</span>
+                    <span className="skill-tag">AI/ML</span>
                     <span className="skill-tag">Video-Editing</span>
                   </div>
                 </div>

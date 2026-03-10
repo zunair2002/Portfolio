@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.css';
 import ParticlesBackground from '@/components/lightswind/particles-background';
-import { Code, Server, Database, Users, Award, BrainCircuit } from "lucide-react";
+import { Code, Server, Users, Award, BrainCircuit } from "lucide-react";
 import { GlowingCards, GlowingCard } from "@/components/lightswind/glowing-cards";
 
 const Skills = () => {

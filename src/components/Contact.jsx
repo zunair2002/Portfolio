@@ -2,7 +2,7 @@ import React from 'react';
 import './Contact.css';
 import '../App.css';
 import ParticlesBackground from '@/components/lightswind/particles-background';
-import { Mail, Phone, MapPin, Briefcase, Linkedin, Instagram, Github } from "lucide-react";
+import { Phone, MapPin, Briefcase, Linkedin, Instagram, Github } from "lucide-react";
 import { GlowingCards, GlowingCard } from "@/components/lightswind/glowing-cards";
 
 const Contact = () => {
