@@ -19,8 +19,8 @@ const Skills = () => {
   const certificates = [
     {
       id: 1,
-      img: "devops certificate.jpg",
-      title: "DEVOPS Certificate",
+      img: "WhatsApp Image 2026-04-23 at 10.16.18 AM.jpeg",
+      title: "Alzheimer’s Pakistan Certificate",
       date: "03-09-2024 to 15-10-2024",
       color: "#F28B82",
     },
@@ -34,7 +34,7 @@ const Skills = () => {
     {
       id: 3,
       img: "figmaa.png",
-      title: "UI-UX Certificate",
+      title: "Figma Certificate",
       date: "12-04-2023 to 15-05-2023",
       color: "#81C995",
     },

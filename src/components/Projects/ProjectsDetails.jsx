@@ -11,34 +11,35 @@ function ProjectDetails() {
     margin: '0 auto',
     width: '100%'
   };
+const projectData = {
+  "1": {
+    name: "SabziMart",
+    desc: "I am currently building SabziMart to simplify the grocery delivery experience for customers, riders, and administrators within a secure and unified platform. It focuses on providing a smooth and reliable end-to-end workflow. The system uses MongoDB for efficient data storage and cloud-based image handling for optimized performance. With Redux for centralized state management, the application is structured to be scalable, responsive, and production-ready.",
+    tags: ["React", "Next.js", "TypeScript", "Redux", "Node.js", "Express", "Socket.IO", "MongoDB", "NextAuth", "Stripe", "Leaflet Map", "Framer Motion", "RBAC"],
+    images: ["/Screenshot 2026-04-23 102633.png", "/Screenshot 2026-04-23 102714.png", "/Screenshot 2026-04-23 102748.png", "/Screenshot 2026-04-23 102841.png","/Screenshot 2026-04-23 103001.png","/Screenshot 2026-04-23 103038.png"]
+  },
 
-  const projectData = {
-    "1": {
-      name: "Project 1",
-      desc: "This project is a real-time chat application built with the MERN stack (MongoDB, Express, React, and Node). It provides a secure user system where all passwords are safely encrypted with bcrypt before being saved in the database. Users first create an account, and after a successful login, the backend gives them a JWT token that allows access to all protected chat features.\n\nOnce logged in, the client connects to the server through Socket.IO, creating a live connection for instant messaging. Users can send and receive messages in real time without refreshing the page, and every message is stored in MongoDB for chat history.",
-      tags: ["React", "TailwindCSS", "DaisyUI", "Node.js", "Express", "WebSocket.IO", "REST api's", "MongoDB"],
-      images: ["/ch3.png", "/ch2.png", "/ch1.png", "/chat1.png"]
-    },
-    "2": {
-      name: "Project 2",
-      desc: "This project is a modern (crypto wallet) user interface designed to display live cryptocurrency data in a clear and visually appealing layout. The dashboard includes a searchable list of popular coins showing key information such as price, market cap, ATH, and daily performance. It also features an interactive Bitcoin price chart that allows users to track market movement over time.\n\nIts clean grid layout, smooth cards, and gradient backgrounds provide a professional look, while the responsive design ensures the interface works well on any device.",
-      tags: ["React", "TailwindCSS", "DaisyUI", "Node.js", "Express", "Google Charts", "CoinsAPI", "REST api's"],
-      images: ["/a1.png", "/a2.png", "/a3.png", "/a4.png"]
-    },
-    "3": {
-      name: "Project 3",
-      desc: "An (expense tracker) is a financial tool designed for the detailed tracking of all your transactions. It provides a structured way to log both income and expenses by capturing key details for each entry. This process creates a complete and organized record of your financial activities.\n\nBeyond simply recording data, this application offers analytical features to guide your financial planning. It transforms your transaction history into useful insights through clear dashboards and visual reports.",
-      tags: ["React", "TailwindCSS", "DaisyUI", "Node.js", "JWT", "Express", "REST api's", "MongoDB"],
-      images: ["/e1.png", "/e2.png", "/e3.png", "/e4.png"]
-    },
-    "4": {
-      name: "Project 4",
-      desc: "This project is a real-time chat application built with the MERN stack. It provides a secure user system where passwords are encrypted with bcrypt. Users first create an account, and after a successful login, the backend gives them a JWT token. Once logged in, the client connects to the server through Socket.IO, creating a live connection for instant messaging.",
-      tags: ["React", "TailwindCSS", "DaisyUI", "Node.js", "Express", "WebSocket.IO", "REST api's", "MongoDB"],
-      images: ["/c5.jpg", "/c2.png", "/c1.png", "/c1.png"]
-    }
-  };
+  "2": {
+    name: "Project 1",
+    desc: "This project is a real-time chat application built with the MERN stack (MongoDB, Express, React, and Node). It provides a secure user system where all passwords are safely encrypted with bcrypt before being saved in the database. Users first create an account, and after a successful login, the backend gives them a JWT token that allows access to all protected chat features.\n\nOnce logged in, the client connects to the server through Socket.IO, creating a live connection for instant messaging. Users can send and receive messages in real time without refreshing the page, and every message is stored in MongoDB for chat history.",
+    tags: ["React", "TailwindCSS", "DaisyUI", "Node.js", "Express", "WebSocket.IO", "REST api's", "MongoDB"],
+    images: ["/ch3.png", "/ch2.png", "/ch1.png", "/chat1.png"]
+  },
 
+  "3": {
+    name: "Project 2",
+    desc: "This project is a modern (crypto wallet) user interface designed to display live cryptocurrency data in a clear and visually appealing layout. The dashboard includes a searchable list of popular coins showing key information such as price, market cap, ATH, and daily performance. It also features an interactive Bitcoin price chart that allows users to track market movement over time.\n\nIts clean grid layout, smooth cards, and gradient backgrounds provide a professional look, while the responsive design ensures the interface works well on any device.",
+    tags: ["React", "TailwindCSS", "DaisyUI", "Node.js", "Express", "Google Charts", "CoinsAPI", "REST api's"],
+    images: ["/a1.png", "/a2.png", "/a3.png", "/a4.png"]
+  },
+
+  "4": {
+    name: "Project 3",
+    desc: "An (expense tracker) is a financial tool designed for the detailed tracking of all your transactions. It provides a structured way to log both income and expenses by capturing key details for each entry. This process creates a complete and organized record of your financial activities.\n\nBeyond simply recording data, this application offers analytical features to guide your financial planning. It transforms your transaction history into useful insights through clear dashboards and visual reports.",
+    tags: ["React", "TailwindCSS", "DaisyUI", "Node.js", "JWT", "Express", "REST api's", "MongoDB"],
+    images: ["/e1.png", "/e2.png", "/e3.png", "/e4.png"]
+  }
+};
   const project = projectData[id];
 
   if (!project) {

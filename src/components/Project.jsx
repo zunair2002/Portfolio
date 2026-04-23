@@ -6,22 +6,29 @@ import ParticlesBackground from '@/components/lightswind/particles-background';
 
 const Project = () => {
   const cardProjects = [
-    {
+     {
       id: 1,
+      type: "Project",
+      name: "SabziMart",
+      description:
+        "SabziMart is a grocery delivery platform built for customers riders and admins on a secure and unified system. It provides a reliable end to end workflow from order to delivery. The platform is designed for scalability performance and a smooth user experience.",
+    },
+    {
+      id: 2,
       type: "Project",
       name: "ChatGO",
       description:
         "A real-time chat application with Socket.io messaging and secure authentication, featuring a responsive interface and a scalable backend for smooth, reliable communication and a scalable backend for smooth.",
     },
     {
-      id: 2,
+      id: 3,
       type: "Project",
       name: "WalletWave",
       description:
         "A modern crypto-wallet interface that shows live cryptocurrency data and key info for popular coins. It also features an interactive Bitcoin chart to track market trends in real time."
     },
     {
-      id: 3,
+      id: 4,
       type: "Project",
       name: "Expense Tracker",
       description:
